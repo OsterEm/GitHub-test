@@ -32,19 +32,19 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 180);
 
         }
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             transform.position -= new Vector3(0, speed, 0)*Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.position += new Vector3(speed, 0, 0)*Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, -90);
 
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.position -= new Vector3(speed, 0, 0)*Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 90);
@@ -58,6 +58,12 @@ public class Player : MonoBehaviour
     //Trigger, could use it with doors and NPC's who stand still, and if walking in "tall grass".
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Yay!");
+
+
+        if (other.tag == "Door")
+        {
+            Debug.Log("Yay!");
+        }
+
     }
 }

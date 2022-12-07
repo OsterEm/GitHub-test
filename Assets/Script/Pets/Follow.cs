@@ -28,6 +28,25 @@ public class Follow : MonoBehaviour
                 transform.position = player.transform.position + new Vector3(0, -1.5f, 0);
                 transform.rotation = Quaternion.Euler(0, 0, 180);
             }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                //the new vector is there for a space between player and pet
+                transform.position = player.transform.position + new Vector3(0, 1.5f, 0);
+                //Rotates
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                //the new vector is there for a space between player and pet
+                transform.position = player.transform.position + new Vector3(-1.5f, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                //the new vector is there for a space between player and pet
+                transform.position = player.transform.position + new Vector3(1.5f, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
             Debug.Log("123");
             //the new vector is there for a space between player and pet
             //transform.position = player.transform.position + new Vector3(1, 1, 0);
