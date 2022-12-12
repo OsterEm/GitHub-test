@@ -8,7 +8,7 @@ public class Follow : MonoBehaviour
     [SerializeField]
     Player player;
 
-    //This should be in another script,  like the patter one, but it is here for now.
+    //This should be in another script,  like the pattern one, but it is here for now.
     private int size = 3;
 
     // Start is called before the first frame update

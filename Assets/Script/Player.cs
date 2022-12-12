@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     private object[,] pets = new object[3,3];
 
     //All the patterns the players own, shouldn't exist 100, but it is set to that for now.
-    private object[] patterns = new object[100];
+    //This is in another script called PetMake.
+    //private object[] patterns = new object[100];
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        pets[1, 2] = null;
+        pets[2, 1] = null;
+        pets[2, 2] = null;
 
         //Movement
         if (Input.GetKey(KeyCode.W))
