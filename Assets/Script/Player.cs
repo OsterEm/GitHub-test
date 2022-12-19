@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     //Array for pets that the player has. Can have, 3 small [0, 0-2], 2 medium [1, 0-1], 1 large [2,1].
     //The other spaces need to be made unavailable.
-    private object[,] pets = new object[3,3];
+    public object[,] pets = new object[3,3];
 
     //All the patterns the players own, shouldn't exist 100, but it is set to that for now.
     //This is in another script called PetMake.
@@ -70,5 +70,19 @@ public class Player : MonoBehaviour
             Debug.Log("Yay!");
         }
 
+    }
+    public void PetAssign(int pattern)
+    {
+        if (pattern == 0)
+        {
+
+        }
+        else if (pattern == 1)
+        {
+            if (pets[0,0] != null)
+            {
+                //pets[0,0] = 
+            }
+        }
     }
 }

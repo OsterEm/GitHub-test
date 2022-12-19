@@ -13,6 +13,7 @@ public class Fight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This should probably be an if instead
         /*while (enemy.HP != 0 && turn = true)
         {
             if(make a move)

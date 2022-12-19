@@ -843,8 +843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab75881619d98e40aa07015b651f86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownedPattern: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   player: {fileID: 1958211956}
   basePattern: {fileID: 2106703173}
+  starterOne: {fileID: 2106703175}
 --- !u!114 &1958211962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106703174}
   - component: {fileID: 2106703173}
+  - component: {fileID: 2106703175}
   m_Layer: 0
   m_Name: PatternCarry
   m_TagString: Untagged
@@ -887,6 +890,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 5
+  hp: 0
+  size: 0
+  yarnAmount: 0
+  yarnType: 
+  makeTimer: 0
+  make: 0
+  player: {fileID: 1958211956}
 --- !u!4 &2106703174
 Transform:
   m_ObjectHideFlags: 0
@@ -902,3 +912,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106703175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106703172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c328dbc58079e84eb7e8a68a464ca0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  hp: 0
+  size: 0
+  yarnAmount: 0
+  yarnType: 
+  makeTimer: 0
+  make: 0
+  player: {fileID: 1958211956}
+  petMake: {fileID: 1958211961}
+  player: {fileID: 1958211956}
