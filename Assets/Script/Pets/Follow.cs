@@ -20,7 +20,8 @@ public class Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(size == 3)
+        //The pet should not move when game is paused
+        if(size == 3 && PausMenu.GameIsPaused == false)
         {
             if (Input.GetKey(KeyCode.W))
             {
