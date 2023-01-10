@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
+//This script isn't used, but I keep it so I can look at the menu things I came up with
 {
     private string[] menu = new string[6];
 
@@ -30,6 +31,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.P))
         {
 
@@ -59,7 +61,7 @@ public class Menu : MonoBehaviour
                 }
 
             } while (inMenu == true);
-        }
+        }*/
 
 
 

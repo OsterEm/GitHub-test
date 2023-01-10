@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class BasePattern : MonoBehaviour
 {
+    //The gameobject for the pet that the pattern makes
+    public GameObject thePet;
+
     //The time this pattern takes, should be different for each pattern
     public int time;
 
     //The health points of the pets, different for each pattern
     public int hp;
+
+    //The defence
+    public int def;
+
+    //The attack power
+    public int atk;
+
+    //The agility/speed (Should be different or same???)
+    public int agility;
 
     //The size of the pattern, 0 = small, 1 = medium, 2 = large
     public int size;
@@ -26,7 +38,7 @@ public class BasePattern : MonoBehaviour
     public bool make = false;
 
     [SerializeField]
-    Player player;
+    public Player player;
 
 
     // Start is called before the first frame update
@@ -41,24 +53,4 @@ public class BasePattern : MonoBehaviour
         
     }
 
-    public virtual void Create()
-    {
-        
-        make = true;
-        while (make == true)
-        {
-            makeTimer += Time.deltaTime;
-
-            if (makeTimer >= time)
-            {
-                make = false;
-
-                player.PetAssign(0);
-            }
-
-            Debug.Log(makeTimer);
-        }
-        Debug.Log("1232123231231");
-        
-    }
 }

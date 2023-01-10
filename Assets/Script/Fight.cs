@@ -25,6 +25,6 @@ public class Fight : MonoBehaviour
         }*/
 
         //Enemy pet have higher chance of doing different things at a different time in the fight
-        //(Like if HP = low, higher chance to heal (if they can?) than to fight.
+        //(Like if HP = low, higher chance to heal (if they can?) than to fight.)
     }
 }

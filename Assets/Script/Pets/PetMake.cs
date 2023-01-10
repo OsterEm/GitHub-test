@@ -40,7 +40,7 @@ public class PetMake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        /*if (Input.GetKeyDown(KeyCode.M))
         {
             Create(0);
 
@@ -51,7 +51,7 @@ public class PetMake : MonoBehaviour
             Create(1);
 
             thePattern = starterOne;
-        }
+        }*/
     }
 
     public void Create(int pattern)
@@ -59,6 +59,12 @@ public class PetMake : MonoBehaviour
         if (ownedPattern[pattern] == true)
         {
             make = true;
+
+            Debug.Log("We made it!!!");
+
+            player.PetAssign(pattern);
+
+            /*
             while (make == true)
             {
                 makeTimer += Time.deltaTime;
@@ -66,11 +72,15 @@ public class PetMake : MonoBehaviour
                 /*if (makeTimer >= thePattern.time)
                 {
 
-                }*/
+                }
                 
                 Debug.Log(makeTimer);
             }
-            Debug.Log("1232123231231");
+            Debug.Log("1232123231231");*/
+        }
+        else
+        {
+            Debug.Log("Don't own that pattern.");
         }
     }
 }

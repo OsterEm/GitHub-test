@@ -6,30 +6,33 @@ public class StarterOne : BasePattern
 {
     [SerializeField]
     PetMake petMake;
+
+    //Player player;
+
+    //The pet (gameobject)
     [SerializeField]
-    Player player;
+    GameObject starterOne;
 
     // Start is called before the first frame update
     void Start()
     {
-        //In minutes
-        time = 120;
+        thePet = starterOne;
+
+        //NOT ALL THINGS HAVE BEEN ASSIGNED!
+
+        //In seconds (All these values are temporary).
+        time = 12;
         hp = 50;
         size = 0;
         //This is in gram right now, but we might want to change that to meters?
         yarnAmount = 50;
 
-        petMake.ownedPattern[1] = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-    public override void Create()
-    {
-        base.Create();
-        player.PetAssign(1);
     }
 }

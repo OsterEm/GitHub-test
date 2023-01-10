@@ -16,6 +16,14 @@ public class Player : MonoBehaviour
     //This is in another script called PetMake.
     //private object[] patterns = new object[100];
 
+    [SerializeField]
+    private PetMake petMake;
+
+    [SerializeField]
+    private BasePattern basePattern;
+    [SerializeField]
+    private StarterOne starterOne;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +43,9 @@ public class Player : MonoBehaviour
         {
             transform.position += new Vector3(0, speed, 0)*Time.deltaTime;
             transform.rotation = Quaternion.Euler(0, 0, 180);
+
+            //Don't want this every frame, but still need it somewhere
+            Debug.Log(pets[0, 0]);
 
         }
         else if (Input.GetKey(KeyCode.S))
@@ -68,6 +79,9 @@ public class Player : MonoBehaviour
         if (other.tag == "Door")
         {
             Debug.Log("Yay!");
+
+            //Yes, we currently recieve the first pattern from a door
+            petMake.ownedPattern[1] = true;
         }
 
     }
@@ -79,9 +93,13 @@ public class Player : MonoBehaviour
         }
         else if (pattern == 1)
         {
-            if (pets[0,0] != null)
+            Debug.Log("Work!");
+
+            if (pets[0,0] == null)
             {
-                //pets[0,0] = 
+                pets[0, 0] = starterOne.thePet;
+
+                Debug.Log("A new pet was made");
             }
         }
     }
