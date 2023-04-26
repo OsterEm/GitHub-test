@@ -9,7 +9,7 @@ public class StarterOne : BasePattern
 
     //Player player;
 
-    //The pet (gameobject)
+    //The pet (gameobject) Whyyyyyyy?????? We already have one in Base????
     [SerializeField]
     GameObject starterOne;
 

@@ -8,6 +8,11 @@ public class PetMake : MonoBehaviour
     //true = owned, false = not owned
     public bool[] ownedPattern = new bool[50];
 
+    //public [] allPatterns = new bool[50];
+
+    //Fill with all the patterns in inspector
+    //public BasePattern[] patterns = new BasePattern[50];
+
     //The patterns that is being made
     private object thePattern;
 
@@ -53,9 +58,24 @@ public class PetMake : MonoBehaviour
             thePattern = starterOne;
         }*/
     }
+    public IEnumerable MakePet(BasePattern basePattern)
+    {
+        make = true;
+        Debug.Log("121212121212121212121212121212");
+
+
+
+        BasePattern pattern = basePattern.GetComponent<BasePattern>();
+
+        yield return new WaitForSeconds(pattern.makeTimer);
+
+        Create(pattern.number);
+        Debug.Log("Pling!");
+    }
 
     public void Create(int pattern)
     {
+        Debug.Log("3333333333333333333333333333333333333333");
         if (ownedPattern[pattern] == true)
         {
             make = true;

@@ -82,9 +82,18 @@ public class PausMenu : MonoBehaviour
     //What happens if you press the starterOne button (There should be more sub menus:
     //1. when hovering over the button, the pet is shown to the side. 2. Click pattern. 3. Look at what you
     //need to create pattern. 4. Chose what yarn, eyes, extra things, etc, that you need. 5. Confirm.)
+
+    //SHOULD BE ONLY ONE, BUT WITH A int i! (SO WE DON'T NEED 50+ FUNCTIONS!)
     public void StarterOne()
     {
         petMake.Create(1);
+    }
+
+    public void SendCreate(BasePattern basePattern)
+    {
+        Debug.Log("11111111111");
+        Debug.Log(basePattern);
+        petMake.MakePet(basePattern);
     }
 
 }

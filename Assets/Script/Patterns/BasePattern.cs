@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasePattern : MonoBehaviour
+    //Make abstract, or is it used (is it the basic one to catch them?)
 {
     //The gameobject for the pet that the pattern makes
     public GameObject thePet;
+
+    //The number of the pattern
+    public int number;
 
     //The time this pattern takes, should be different for each pattern
     public int time;
