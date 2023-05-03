@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     private float speed = 3;
 
+    //Do we own the pattern?
+    public bool[] ownedPatterns = new bool[10];
+    //All the patterns, whether we own them or not
+    public GameObject[] patterns = new GameObject[10];
+
     //For interacting with objects use triggers (?)
 
     //Array for pets that the player has. Can have, 3 small [0, 0-2], 2 medium [1, 0-1], 1 large [2,1].

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PetMake : MonoBehaviour
+    //WHY IS THIS NOT IN THE PATTERN SCRIPTS!?
 {
     //Temporary number, will be updated with the correct number when I know how many patterns will exist in total
     //true = owned, false = not owned
-    public bool[] ownedPattern = new bool[50];
+    public bool[] ownedPattern = new bool[10];
+    [SerializeField]
+    private GameObject[] patterns = new GameObject[10];
 
     //public [] allPatterns = new bool[50];
 
@@ -58,7 +61,7 @@ public class PetMake : MonoBehaviour
             thePattern = starterOne;
         }*/
     }
-    public IEnumerable MakePet(BasePattern basePattern)
+    public IEnumerable MakePet(int i)
     {
         make = true;
         Debug.Log("121212121212121212121212121212");

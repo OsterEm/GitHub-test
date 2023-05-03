@@ -18,6 +18,9 @@ public class PausMenu : MonoBehaviour
     [SerializeField]
     private PetMake petMake;
 
+    [SerializeField]
+    private Player player;
+
     void Start()
     {
         menuHolder.SetActive(false);
@@ -89,11 +92,21 @@ public class PausMenu : MonoBehaviour
         petMake.Create(1);
     }
 
-    public void SendCreate(BasePattern basePattern)
+    public void SendCreate(int i)
     {
         Debug.Log("11111111111");
-        Debug.Log(basePattern);
-        petMake.MakePet(basePattern);
+        Debug.Log(i);
+        petMake.MakePet(i);
+    }
+
+    public void Create()
+    {
+        //THIS doesn't work since it isn't the only child (there are others under CANVAS).
+        //How we can fix this (Best thing I can think of right now): Make an array with all the 
+        //buttons, and then do the same thing, but with the index in the array using Array.IndexOf(array, value);
+        int index = transform.GetSiblingIndex();
+        Debug.Log(index);
+        player.patterns[index].GetComponent<BasePattern>().Make();
     }
 
 }

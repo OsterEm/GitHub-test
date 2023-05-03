@@ -57,4 +57,9 @@ public class BasePattern : MonoBehaviour
         
     }
 
+    public void Make()
+    {
+        Debug.Log("HELLUUUU");
+    }
+
 }
