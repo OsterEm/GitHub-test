@@ -44,6 +44,8 @@ public class BasePattern : MonoBehaviour
     [SerializeField]
     public Player player;
 
+    public PetMake petMake;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +59,16 @@ public class BasePattern : MonoBehaviour
         
     }
 
-    public void Make()
+    public virtual void Reference()
+    {
+        //petMake = FindObjectOfType<PetMake>();
+    }
+
+    public virtual void Make()
     {
         Debug.Log("HELLUUUU");
+
+        petMake.StartCoroutine(petMake.MakePet(gameObject));
     }
 
 }

@@ -21,6 +21,9 @@ public class PausMenu : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    //[SerializeField]
+    //private List<GameObject> buttonList;
+
     void Start()
     {
         menuHolder.SetActive(false);
@@ -87,24 +90,25 @@ public class PausMenu : MonoBehaviour
     //need to create pattern. 4. Chose what yarn, eyes, extra things, etc, that you need. 5. Confirm.)
 
     //SHOULD BE ONLY ONE, BUT WITH A int i! (SO WE DON'T NEED 50+ FUNCTIONS!)
-    public void StarterOne()
+    /*public void StarterOne()
     {
         petMake.Create(1);
-    }
+    }*/
 
-    public void SendCreate(int i)
+    /*public void SendCreate(int i)
     {
         Debug.Log("11111111111");
         Debug.Log(i);
         petMake.MakePet(i);
-    }
+    }*/
 
-    public void Create()
+    public void Create(int index)
     {
         //THIS doesn't work since it isn't the only child (there are others under CANVAS).
         //How we can fix this (Best thing I can think of right now): Make an array with all the 
         //buttons, and then do the same thing, but with the index in the array using Array.IndexOf(array, value);
-        int index = transform.GetSiblingIndex();
+        //int index = transform.GetSiblingIndex();
+        //int index = buttonList.IndexOf()
         Debug.Log(index);
         player.patterns[index].GetComponent<BasePattern>().Make();
     }

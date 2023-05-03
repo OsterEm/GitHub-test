@@ -61,7 +61,7 @@ public class PetMake : MonoBehaviour
             thePattern = starterOne;
         }*/
     }
-    public IEnumerable MakePet(int i)
+    /*public IEnumerator MakePet(int i)
     {
         make = true;
         Debug.Log("121212121212121212121212121212");
@@ -71,6 +71,22 @@ public class PetMake : MonoBehaviour
         BasePattern pattern = basePattern.GetComponent<BasePattern>();
 
         yield return new WaitForSeconds(pattern.makeTimer);
+
+        Create(pattern.number);
+        Debug.Log("Pling!");
+    }*/
+    public IEnumerator MakePet(GameObject gameObject)
+    {
+        //This doesn't work, since the patterns are prefabs
+        BasePattern pattern = gameObject.GetComponent<BasePattern>();
+
+        Debug.Log(pattern.makeTimer);
+        Debug.Log(gameObject);
+        Debug.Log(gameObject.GetComponent<BasePattern>());
+        Debug.Log(gameObject.GetComponent<BasePattern>().makeTimer);
+
+        yield return new WaitForSeconds(pattern.makeTimer);
+        //yield return new WaitForSeconds(time);
 
         Create(pattern.number);
         Debug.Log("Pling!");

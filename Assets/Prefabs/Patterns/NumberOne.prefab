@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thePet: {fileID: 0}
   number: 0
-  time: 0
+  time: 12
   hp: 0
   def: 0
   atk: 0

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StarterOne : BasePattern
 {
-    [SerializeField]
-    PetMake petMake;
+    /*[SerializeField]
+    PetMake petMake;*/
 
     //Player player;
 
@@ -16,6 +16,10 @@ public class StarterOne : BasePattern
     // Start is called before the first frame update
     void Start()
     {
+        //Since the patterns aren't in the scene, this will never happen
+
+        /*base.Reference();
+
         thePet = starterOne;
 
         //NOT ALL THINGS HAVE BEEN ASSIGNED!
@@ -25,7 +29,7 @@ public class StarterOne : BasePattern
         hp = 50;
         size = 0;
         //This is in gram right now, but we might want to change that to meters?
-        yarnAmount = 50;
+        yarnAmount = 50;*/
 
         
     }
@@ -35,4 +39,5 @@ public class StarterOne : BasePattern
     {
         
     }
+
 }
