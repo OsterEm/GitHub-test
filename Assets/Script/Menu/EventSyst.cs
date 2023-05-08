@@ -13,6 +13,9 @@ public class EventSyst : MonoBehaviour
     [SerializeField]
     private GameObject firstPattern;
 
+    [SerializeField]
+    private GameObject firstYarn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +39,10 @@ public class EventSyst : MonoBehaviour
     {
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstPattern, new BaseEventData(eventSystem));
+    }
+    public void YarnMenu()
+    {
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(firstYarn, new BaseEventData(eventSystem));
     }
 }

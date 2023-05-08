@@ -12,6 +12,11 @@ public class PausMenu : MonoBehaviour
 
     public GameObject patternMenu;
 
+    public GameObject yarnMenu;
+
+    //Which pattern we will make
+    private int whichPattern;
+
     [SerializeField]
     private EventSyst eventSyst;
 
@@ -85,6 +90,25 @@ public class PausMenu : MonoBehaviour
         eventSyst.PatternMenu();
     }
 
+    public void Yarn(int index)
+    {
+        Debug.Log("Yarn!");
+
+        patternMenu.SetActive(false);
+        yarnMenu.SetActive(true);
+
+        eventSyst.YarnMenu();
+
+        whichPattern = index;
+    }
+
+    //Because we need the parameter
+    public void YarnPress()
+    {
+        //Needs to make sure that it also sends the yarn, possibly by having an array and maybe YarnPress(int)
+        Create(whichPattern);
+    }
+
     //What happens if you press the starterOne button (There should be more sub menus:
     //1. when hovering over the button, the pet is shown to the side. 2. Click pattern. 3. Look at what you
     //need to create pattern. 4. Chose what yarn, eyes, extra things, etc, that you need. 5. Confirm.)
@@ -102,6 +126,7 @@ public class PausMenu : MonoBehaviour
         petMake.MakePet(i);
     }*/
 
+    //Button is clicked, and it sends a number here
     public void Create(int index)
     {
         //THIS doesn't work since it isn't the only child (there are others under CANVAS).
@@ -109,8 +134,23 @@ public class PausMenu : MonoBehaviour
         //buttons, and then do the same thing, but with the index in the array using Array.IndexOf(array, value);
         //int index = transform.GetSiblingIndex();
         //int index = buttonList.IndexOf()
-        Debug.Log(index);
-        player.patterns[index].GetComponent<BasePattern>().Make();
+
+        //If we own the pattern
+        if (petMake.ownedPattern[index] == true)
+        {
+            Debug.Log(index);
+
+            //Sends it to the Make() function of the pattern that is on the "index" place of patterns (in player)
+            player.patterns[index].GetComponent<BasePattern>().Make();
+        }
+        //If we don't own the pattern
+        else
+        {
+            Debug.Log("Don't own that pattern");
+        }
+        
     }
+
+
 
 }

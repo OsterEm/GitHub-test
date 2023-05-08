@@ -75,24 +75,26 @@ public class PetMake : MonoBehaviour
         Create(pattern.number);
         Debug.Log("Pling!");
     }*/
-    public IEnumerator MakePet(GameObject gameObject)
+    //A coroutine to count down the time untill pet is made, needs the patterns object and time
+    public IEnumerator MakePet(GameObject gameObject, int time)
     {
         //This doesn't work, since the patterns are prefabs
         BasePattern pattern = gameObject.GetComponent<BasePattern>();
 
-        Debug.Log(pattern.makeTimer);
+        //Debug.Log(pattern.makeTimer);
+        Debug.Log(time);
         Debug.Log(gameObject);
         Debug.Log(gameObject.GetComponent<BasePattern>());
         Debug.Log(gameObject.GetComponent<BasePattern>().makeTimer);
 
-        yield return new WaitForSeconds(pattern.makeTimer);
+        yield return new WaitForSeconds(time);
         //yield return new WaitForSeconds(time);
 
-        Create(pattern.number);
+        Create(pattern.number, gameObject);
         Debug.Log("Pling!");
     }
 
-    public void Create(int pattern)
+    public void Create(int pattern, GameObject gameObject)
     {
         Debug.Log("3333333333333333333333333333333333333333");
         if (ownedPattern[pattern] == true)
@@ -101,7 +103,7 @@ public class PetMake : MonoBehaviour
 
             Debug.Log("We made it!!!");
 
-            player.PetAssign(pattern);
+            player.PetAssign(gameObject);
 
             /*
             while (make == true)

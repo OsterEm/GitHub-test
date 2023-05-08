@@ -64,11 +64,16 @@ public class BasePattern : MonoBehaviour
         //petMake = FindObjectOfType<PetMake>();
     }
 
+    //We don't need this (for now) in any of the other patterns, since it is the same (different number)
     public virtual void Make()
     {
         Debug.Log("HELLUUUU");
 
-        petMake.StartCoroutine(petMake.MakePet(gameObject));
+        //Finds PetMake (does it here since they are prefabs)
+        petMake = FindObjectOfType<PetMake>();
+
+        //Starts the coroutine, with the patterns gameobject and time (to make it)
+        petMake.StartCoroutine(petMake.MakePet(gameObject, time));
     }
 
 }

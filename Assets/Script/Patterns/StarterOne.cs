@@ -40,4 +40,10 @@ public class StarterOne : BasePattern
         
     }
 
+    /*public override void Make()
+    {
+        time = 12;
+        base.Make();
+    }*/
+
 }
