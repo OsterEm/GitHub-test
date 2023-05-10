@@ -33,7 +33,10 @@ public class BasePattern : MonoBehaviour
     public int yarnAmount;
 
     //What kind of yarn it is
-    public string yarnType;
+    public GameObject yarnType;
+
+    //The soul of the pet, is not assigned in the inspector since it is assigned when the player gives it a soul
+    public GameObject soul;
 
     //Used as a timer when making pets.
     public float makeTimer;
@@ -65,7 +68,8 @@ public class BasePattern : MonoBehaviour
     }
 
     //We don't need this (for now) in any of the other patterns, since it is the same (different number)
-    public virtual void Make()
+    //It is here because we need the gameobject and time of it
+    public virtual void Make(GameObject yarn)
     {
         Debug.Log("HELLUUUU");
 
@@ -73,7 +77,7 @@ public class BasePattern : MonoBehaviour
         petMake = FindObjectOfType<PetMake>();
 
         //Starts the coroutine, with the patterns gameobject and time (to make it)
-        petMake.StartCoroutine(petMake.MakePet(gameObject, time));
+        petMake.StartCoroutine(petMake.MakePet(gameObject, time, yarn));
     }
 
 }

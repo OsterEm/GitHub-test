@@ -104,9 +104,9 @@ MonoBehaviour:
   def: 0
   atk: 0
   agility: 0
-  size: 0
+  size: 1
   yarnAmount: 0
-  yarnType: 
+  yarnType: {fileID: 8963177541441590344, guid: cb86b0843256ae74ea2f381a000112fa, type: 3}
   makeTimer: 0
   make: 0
   player: {fileID: 0}

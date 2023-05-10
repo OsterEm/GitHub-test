@@ -16,10 +16,16 @@ public class EventSyst : MonoBehaviour
     [SerializeField]
     private GameObject firstYarn;
 
+    [SerializeField]
+    private GameObject firstSoul;
+
+
+    EventSystem eventSystem = EventSystem.current;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,18 +37,23 @@ public class EventSyst : MonoBehaviour
     //Used in case the pause menu is closed "incorrectly" (with the m button while in a sub)
     public void PauseMenu()
     {
-        var eventSystem = EventSystem.current;
+        //var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstMenu, new BaseEventData(eventSystem));
     }
     //The pattern menu's first button need to be selected
     public void PatternMenu()
     {
-        var eventSystem = EventSystem.current;
+        //var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstPattern, new BaseEventData(eventSystem));
     }
     public void YarnMenu()
     {
-        var eventSystem = EventSystem.current;
+        //var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstYarn, new BaseEventData(eventSystem));
+    }
+
+    public void SoulMenu()
+    {
+        eventSystem.SetSelectedGameObject(firstSoul, new BaseEventData(eventSystem));
     }
 }

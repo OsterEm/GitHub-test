@@ -24,6 +24,17 @@ public class Player : MonoBehaviour
     public GameObject[] pets = new GameObject[8];
 
     [SerializeField]
+    public GameObject[] souls = new GameObject[8];
+
+    //Don't know what else to call them, pets that don't have a soul (but a body)
+    [SerializeField]
+    public List<GameObject> nonMadePets;
+    //-1 because arrays/lists start at 0, and we need the first one, after adding one, to be 0
+    private int countNonMadePets = -1;
+    private int spaceNonMadePets;
+
+
+    [SerializeField]
     public List<GameObject> yarn;
 
     //Temp. number
@@ -104,6 +115,18 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void PutPetInBag(GameObject gameObject, GameObject yarn)
+    {
+        nonMadePets.Add(gameObject);
+        countNonMadePets += 1;
+        nonMadePets[countNonMadePets].GetComponent<BasePattern>().yarnType = yarn;
+        spaceNonMadePets += nonMadePets[countNonMadePets].GetComponent<BasePattern>().size;
+
+        Debug.Log(yarn);
+        Debug.Log(nonMadePets[countNonMadePets].GetComponent<BasePattern>().yarnType);
+    }
+
     public void PetAssign(GameObject gameObject)
     {
         /*if (pattern == 0)

@@ -14,6 +14,10 @@ public class PausMenu : MonoBehaviour
 
     public GameObject yarnMenu;
 
+    public GameObject soulMenu;
+
+    public GameObject nonMadePetsMenu;
+
     //Which pattern we will make
     private int whichPattern;
 
@@ -71,6 +75,7 @@ public class PausMenu : MonoBehaviour
         menuHolder.SetActive(true);
         pauseMenuUI.SetActive(true);
         patternMenu.SetActive(false);
+        yarnMenu.SetActive(false);
         Time.timeScale = 0;
         GameIsPaused = true;
 
@@ -90,23 +95,42 @@ public class PausMenu : MonoBehaviour
         eventSyst.PatternMenu();
     }
 
-    public void Yarn(int index)
+    public void Souls()
+    {
+        soulMenu.SetActive(true);
+        pauseMenuUI.SetActive(false);
+
+        eventSyst.SoulMenu();
+    }
+
+    public void UseSoul(GameObject gameObject)
+    {
+        nonMadePetsMenu.SetActive(true);
+
+        //Have something similar to when we make a pet (?)
+        //ALSO; THESE ARE NOT ASSIGNED IN THE INSPECTOR! PLEASE FIX THAT! :)
+    }
+
+    //Pick which pattern (with a button in the pattern menu)
+    public void ChosePattern(int index)
     {
         Debug.Log("Yarn!");
 
+        //Hides patternMenu, and shows yarnMenu
         patternMenu.SetActive(false);
         yarnMenu.SetActive(true);
 
         eventSyst.YarnMenu();
 
+        //The pattern we pick is saved in this variable
         whichPattern = index;
     }
 
     //Because we need the parameter
-    public void YarnPress()
+    public void YarnPress(GameObject yarn)
     {
         //Needs to make sure that it also sends the yarn, possibly by having an array and maybe YarnPress(int)
-        Create(whichPattern);
+        OwnCheck(whichPattern, yarn);
     }
 
     //What happens if you press the starterOne button (There should be more sub menus:
@@ -127,7 +151,7 @@ public class PausMenu : MonoBehaviour
     }*/
 
     //Button is clicked, and it sends a number here
-    public void Create(int index)
+    public void OwnCheck(int index, GameObject yarn)
     {
         //THIS doesn't work since it isn't the only child (there are others under CANVAS).
         //How we can fix this (Best thing I can think of right now): Make an array with all the 
@@ -141,7 +165,7 @@ public class PausMenu : MonoBehaviour
             Debug.Log(index);
 
             //Sends it to the Make() function of the pattern that is on the "index" place of patterns (in player)
-            player.patterns[index].GetComponent<BasePattern>().Make();
+            player.patterns[index].GetComponent<BasePattern>().Make(yarn);
         }
         //If we don't own the pattern
         else
@@ -150,7 +174,5 @@ public class PausMenu : MonoBehaviour
         }
         
     }
-
-
 
 }
