@@ -21,7 +21,11 @@ public class Player : MonoBehaviour
     //Could be: small takes one space, medium two spaces, and large three spaces (or something like that
     //But it doesn't really make any sense, since a large one won't take up the space in your pockets)
     [SerializeField]
-    public GameObject[] pets = new GameObject[8];
+    public List<GameObject> pets; // = new GameObject[8];
+    //How many pets
+    private int countPets = -1;
+    //How much space they take (Together they will only be able to take up 8 space)
+    private int spacePets;
 
     [SerializeField]
     public GameObject[] souls = new GameObject[8];
@@ -149,9 +153,16 @@ public class Player : MonoBehaviour
         //if pets[0] != null, check pets[0].size, if pets[0].size = 1, check on pets[1] next, but if it is 2
         //then check on pets[2] instead (could technically just add the size to the number that checks (?))
 
+        //This one doesn't work now that it is a LIST AND NOT AN ARRAY!!! 
         if (pets[0] == null)
         {
-            pets[0] = gameObject;
+            //pets[0] = gameObject;
+            pets.Add(gameObject);
+            countPets += 1;
+            Debug.Log(countPets);
+            spacePets += pets[countPets].GetComponent<BasePattern>().size;
+
+            Debug.Log(countPets);
             Debug.Log("We made a pet, but please make this a loop when we know how the pet-space-thing should work");
         }
     }

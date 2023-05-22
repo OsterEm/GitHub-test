@@ -133,5 +133,6 @@ public class PetMake : MonoBehaviour
     public void GiveSoul(GameObject pet, GameObject soul)
     {
         pet.GetComponent<BasePattern>().soul = soul;
+        //player.nonMadePets.Find(pet)
     }
 }

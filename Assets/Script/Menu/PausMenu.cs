@@ -20,6 +20,8 @@ public class PausMenu : MonoBehaviour
 
     //Which pattern we will make
     private int whichPattern;
+    //Which soul we will use
+    private GameObject whichSoul;
 
     [SerializeField]
     private EventSyst eventSyst;
@@ -76,6 +78,8 @@ public class PausMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         patternMenu.SetActive(false);
         yarnMenu.SetActive(false);
+        soulMenu.SetActive(false);
+        nonMadePetsMenu.SetActive(false);
         Time.timeScale = 0;
         GameIsPaused = true;
 
@@ -103,12 +107,29 @@ public class PausMenu : MonoBehaviour
         eventSyst.SoulMenu();
     }
 
-    public void UseSoul(GameObject gameObject)
+    public void UseSoul(GameObject soul)
     {
         nonMadePetsMenu.SetActive(true);
+        whichSoul = soul;
+
+        eventSyst.NonMadePetsMenu();
 
         //Have something similar to when we make a pet (?)
         //ALSO; THESE ARE NOT ASSIGNED IN THE INSPECTOR! PLEASE FIX THAT! :)
+    }
+
+    public void ChoseNonMadePet(int whichPet)
+    {
+        if (player.nonMadePets.Count != 0)
+        {
+            petMake.GiveSoul(player.nonMadePets[whichPet], whichSoul);
+            player.PetAssign(player.nonMadePets[whichPet]);
+            player.nonMadePets.RemoveAt(whichPet);
+        }
+        else
+        {
+            Debug.Log("No NonMadePets");
+        }
     }
 
     //Pick which pattern (with a button in the pattern menu)

@@ -19,13 +19,16 @@ public class EventSyst : MonoBehaviour
     [SerializeField]
     private GameObject firstSoul;
 
+    [SerializeField]
+    private GameObject firstNonMade;
 
-    EventSystem eventSystem = EventSystem.current;
+
+    EventSystem eventSystem;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        eventSystem = EventSystem.current;
     }
 
     // Update is called once per frame
@@ -55,5 +58,10 @@ public class EventSyst : MonoBehaviour
     public void SoulMenu()
     {
         eventSystem.SetSelectedGameObject(firstSoul, new BaseEventData(eventSystem));
+    }
+
+    public void NonMadePetsMenu()
+    {
+        eventSystem.SetSelectedGameObject(firstNonMade, new BaseEventData(eventSystem));
     }
 }
