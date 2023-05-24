@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     //How many pets
     private int countPets = -1;
     //How much space they take (Together they will only be able to take up 8 space)
-    private int spacePets;
+    public int spacePets;
 
     [SerializeField]
     public GameObject[] souls = new GameObject[8];
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public List<GameObject> nonMadePets;
     //-1 because arrays/lists start at 0, and we need the first one, after adding one, to be 0
     private int countNonMadePets = -1;
-    private int spaceNonMadePets;
+    public int spaceNonMadePets;
 
 
     [SerializeField]
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
         nonMadePets.Add(gameObject);
         countNonMadePets += 1;
         nonMadePets[countNonMadePets].GetComponent<BasePattern>().yarnType = yarn;
-        spaceNonMadePets += nonMadePets[countNonMadePets].GetComponent<BasePattern>().size;
+        //spaceNonMadePets += nonMadePets[countNonMadePets].GetComponent<BasePattern>().size;
 
         Debug.Log(yarn);
         Debug.Log(nonMadePets[countNonMadePets].GetComponent<BasePattern>().yarnType);
@@ -153,8 +153,39 @@ public class Player : MonoBehaviour
         //if pets[0] != null, check pets[0].size, if pets[0].size = 1, check on pets[1] next, but if it is 2
         //then check on pets[2] instead (could technically just add the size to the number that checks (?))
 
-        //This one doesn't work now that it is a LIST AND NOT AN ARRAY!!! 
-        if (pets[0] == null)
+        /*if (spacePets + gameObject.GetComponent<BasePattern>().size !>= 8)
+        {
+            pets.Add(gameObject);
+            countPets += 1;
+            Debug.Log(countPets);
+            spacePets += pets[countPets].GetComponent<BasePattern>().size;
+
+            Debug.Log(countPets);
+            Debug.Log("We made a pet, but please make this a loop when we know how the pet-space-thing should work");
+        }
+        else
+        {
+            Debug.Log("Can't make, not enough space");
+        }*/
+
+        //Adds the object as a pet
+        pets.Add(gameObject);
+        //There is one more pet
+        countPets += 1;
+        Debug.Log(countPets);
+        //The pet takes up space
+        spacePets += pets[countPets].GetComponent<BasePattern>().size;
+
+        Debug.Log(countPets);
+        Debug.Log("We made a pet, but please make this a loop when we know how the pet-space-thing should work");
+
+        //One NonMadePet is a pet now. Also removes it from the space
+        countNonMadePets -= 1;
+        spaceNonMadePets -= pets[countPets].GetComponent<BasePattern>().size;
+
+
+
+        /*if (pets.Count == 0)
         {
             //pets[0] = gameObject;
             pets.Add(gameObject);
@@ -164,6 +195,6 @@ public class Player : MonoBehaviour
 
             Debug.Log(countPets);
             Debug.Log("We made a pet, but please make this a loop when we know how the pet-space-thing should work");
-        }
+        }*/
     }
 }

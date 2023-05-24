@@ -68,16 +68,28 @@ public class BasePattern : MonoBehaviour
     }
 
     //We don't need this (for now) in any of the other patterns, since it is the same (different number)
-    //It is here because we need the gameobject and time of it
+    //It is here because we need the gameobject and time of it, and check space before the coroutine
     public virtual void Make(GameObject yarn)
     {
         Debug.Log("HELLUUUU");
 
-        //Finds PetMake (does it here since they are prefabs)
+        //Finds PetMake (does it here since they (the patterns) are prefabs)
         petMake = FindObjectOfType<PetMake>();
+        player = FindObjectOfType<Player>();
 
-        //Starts the coroutine, with the patterns gameobject and time (to make it)
-        petMake.StartCoroutine(petMake.MakePet(gameObject, time, yarn));
+        //Checks if there is enough space (max space is right now eight)
+        if (player.spaceNonMadePets + size <= 8)
+        {
+            player.spaceNonMadePets += size;
+            //Starts the coroutine, with the patterns gameobject and time (to make it)
+            petMake.StartCoroutine(petMake.MakePet(gameObject, time, yarn));
+
+        }
+        else
+        {
+            Debug.Log("Sot enough space");
+        }
+
     }
 
 }

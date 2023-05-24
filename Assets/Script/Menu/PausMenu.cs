@@ -120,7 +120,10 @@ public class PausMenu : MonoBehaviour
 
     public void ChoseNonMadePet(int whichPet)
     {
-        if (player.nonMadePets.Count != 0)
+        Debug.Log(player.nonMadePets[whichPet].GetComponent<BasePattern>().size);
+        Debug.Log(player.spacePets);
+
+        if (player.nonMadePets.Count != 0 && player.nonMadePets[whichPet].GetComponent<BasePattern>().size + player.spacePets <= 8)
         {
             petMake.GiveSoul(player.nonMadePets[whichPet], whichSoul);
             player.PetAssign(player.nonMadePets[whichPet]);
@@ -180,10 +183,12 @@ public class PausMenu : MonoBehaviour
         //int index = transform.GetSiblingIndex();
         //int index = buttonList.IndexOf()
 
-        //If we own the pattern
-        if (petMake.ownedPattern[index] == true)
+        //If we own the pattern && have space
+        if (petMake.ownedPattern[index] == true/* && player.spaceNonMadePets + player.patterns[index].GetComponent<BasePattern>().size <= 8*/)
         {
             Debug.Log(index);
+            Debug.Log(player.spaceNonMadePets);
+            Debug.Log(player.patterns[index].GetComponent<BasePattern>().size);
 
             //Sends it to the Make() function of the pattern that is on the "index" place of patterns (in player)
             player.patterns[index].GetComponent<BasePattern>().Make(yarn);
@@ -191,7 +196,7 @@ public class PausMenu : MonoBehaviour
         //If we don't own the pattern
         else
         {
-            Debug.Log("Don't own that pattern");
+            Debug.Log("Don't own that pattern/ot enough space");
         }
         
     }
